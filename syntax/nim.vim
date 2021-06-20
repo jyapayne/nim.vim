@@ -51,7 +51,7 @@ syn keyword nimKeyword       raise ref return
 syn keyword nimKeyword       shared shl shr static
 syn keyword nimKeyword       try tuple type
 syn keyword nimKeyword       var vtref vtptr
-syn keyword nimKeyword       when while with without
+syn keyword nimKeyword       while with without
 syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
 syn keyword nimKeyword       lent sink iterable owned auto any
@@ -61,7 +61,7 @@ syn match   nimPragma      "[a-zA-Z_][a-zA-Z0-9_]*" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*" contained
 syn match   nimType      "\v<[A-Z][a-zA-Z0-9_]+>"
 syn keyword nimRepeat        for while
-syn keyword nimConditional   if elif else case of
+syn keyword nimConditional   if elif else case of when
 syn keyword nimOperator      and in is not or xor shl shr div
 syn match   nimComment       "#.*$" contains=nimTodo,@Spell
 syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
