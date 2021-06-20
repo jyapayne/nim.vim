@@ -54,7 +54,7 @@ syn keyword nimKeyword       var vtref vtptr
 syn keyword nimKeyword       when while with without
 syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
-syn keyword nimKeyword       lent sink
+syn keyword nimKeyword       lent sink iterable owned auto any
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*" contained
 syn match   nimPragma      "[a-zA-Z_][a-zA-Z0-9_]*" contained
