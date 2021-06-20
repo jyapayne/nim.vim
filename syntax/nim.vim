@@ -54,9 +54,12 @@ syn keyword nimKeyword       var vtref vtptr
 syn keyword nimKeyword       when while with without
 syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
+syn keyword nimKeyword       lent sink
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*" contained
+syn match   nimPragma      "[a-zA-Z_][a-zA-Z0-9_]*" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*" contained
+syn match   nimType      "\v<[A-Z][a-zA-Z0-9_]+>"
 syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
 syn keyword nimOperator      and in is not or xor shl shr div
@@ -68,6 +71,8 @@ syn keyword nimBoolean       true false
 
 " Strings
 syn region nimString start=+'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
+syn region nimFunction start=+`+ skip=+\\\\\|\\`\|\\$+ excludenl end=+`+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
+syn region nimPragmaSection start=+{.+ skip=+\\\\\|\\`\|\\$+ excludenl end=+.}+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell,nimPragma
 syn region nimString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
 syn region nimString start=+"""+ end=+"""+ keepend contains=nimEscape,nimEscapeError,@Spell
 syn region nimRawString matchgroup=Normal start=+[rR]"+ end=+"+ skip=+\\\\\|\\"+ contains=@Spell
@@ -101,6 +106,7 @@ if nim_highlight_builtins == 1
   syn keyword nimBuiltin set Byte Natural Positive Conversion
   syn keyword nimBuiltin BiggestInt BiggestFloat cchar cschar cshort cint csize cuchar cushort
   syn keyword nimBuiltin clong clonglong cfloat cdouble clongdouble cuint culong culonglong cchar
+  syn keyword nimBuiltin typedesc stmt expr any untyped typed
   syn keyword nimBuiltin CompileDate CompileTime nimversion nimVersion nimmajor nimMajor
   syn keyword nimBuiltin nimminor nimMinor nimpatch nimPatch cpuendian cpuEndian hostos hostOS hostcpu hostCPU inf
   syn keyword nimBuiltin neginf nan QuitSuccess QuitFailure dbglinehook dbgLineHook stdin
@@ -168,6 +174,8 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimBrackets       Operator
   HiLink nimKeyword	      Keyword
   HiLink nimFunction	    	Function
+  HiLink nimPragma	    	Pragma
+  HiLink nimType	    	Type
   HiLink nimConditional	  Conditional
   HiLink nimRepeat		      Repeat
   HiLink nimString		      String
@@ -186,7 +194,7 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   endif
   
   if nim_highlight_builtins == 1
-    HiLink nimBuiltin	Number
+    HiLink nimBuiltin	Special
   endif
   
   if nim_highlight_exceptions == 1
