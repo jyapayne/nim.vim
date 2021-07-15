@@ -65,6 +65,7 @@ syn keyword nimConditional   if elif else case of when try except return finally
 syn keyword nimOperator      and in is not or xor shl shr div
 syn match   nimComment       "#.*$" contains=nimTodo,@Spell
 syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
+syn region  nimComment       start="##\[" end="\]##" contains=nimTodo,@Spell
 syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 
