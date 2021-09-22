@@ -71,7 +71,7 @@ syn keyword nimBoolean       true false
 
 
 " Strings
-syn region nimPragmaSection start=+{\.+ skip=+\\\\\|\\`\|\\:\|\\$+ end=+\.}+ keepend contains=nimString,nimTripleString,nimEscape,nimEscapeError,@Spell,nimPragma
+syn region nimPragmaSection start=+{\.+ skip=+\\\\\|\\`\|\\:\|\\$+ end=+\.}+ keepend contains=nimString,nimTripleString,nimRawString,nimEscape,nimEscapeError,@Spell,nimPragma
 syn region nimString start=+'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
 syn region nimFunction start=+`+ skip=+\\\\\|\\`\|\\$+ excludenl end=+`+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
 syn region nimString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
