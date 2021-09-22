@@ -71,11 +71,11 @@ syn keyword nimBoolean       true false
 
 
 " Strings
-syn region nimPragmaSection start=+{\.+ skip=+\\\\\|\\`\|\\$+ excludenl end=+\.}+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell,nimPragma
+syn region nimPragmaSection start=+{\.+ skip=+\\\\\|\\`\|\\:\|\\$+ end=+\.}+ keepend contains=nimString,nimTripleString,nimEscape,nimEscapeError,@Spell,nimPragma
 syn region nimString start=+'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
 syn region nimFunction start=+`+ skip=+\\\\\|\\`\|\\$+ excludenl end=+`+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
 syn region nimString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
-syn region nimString start=+"""+ end=+"""+ keepend contains=nimEscape,nimEscapeError,@Spell
+syn region nimTripleString start=+\z('''\|"""\)+ end="\z1" skip=+\\\\\|\\"+ contains=@Spell
 syn region nimRawString matchgroup=Normal start=+[rR]"+ end=+"+ skip=+\\\\\|\\"+ contains=@Spell
 
 syn match  nimEscape		+\\[abfnrtv'"\\]+ contained
@@ -180,6 +180,7 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimConditional	  Conditional
   HiLink nimRepeat		      Repeat
   HiLink nimString		      String
+  HiLink nimTripleString		      String
   HiLink nimRawString	    String
   HiLink nimBoolean        Boolean
   HiLink nimEscape		      Special
