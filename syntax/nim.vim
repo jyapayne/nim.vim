@@ -59,7 +59,7 @@ syn keyword nimKeyword       lent sink iterable owned auto any
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*" contained
 syn match   nimPragma      "[a-zA-Z_][a-zA-Z0-9_]*" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*" contained
-syn match   nimType      "\v<[A-Z][a-zA-Z0-9_]+>"
+syn match   nimType      "\v<[A-Z][a-zA-Z0-9_]*>"
 syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of when try except return finally
 syn keyword nimOperator      and in is not or xor shl shr div
